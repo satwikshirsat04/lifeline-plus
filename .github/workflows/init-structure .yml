@@ -1,0 +1,15 @@
+name: Generate Folder Structure
+
+on: push: branches: [ main ]
+
+jobs: setup: runs-on: ubuntu-latest steps: - name: Checkout Code uses: actions/checkout@v3
+
+  - name: Create folders and files
+    run: |
+      mkdir -p backend/{controllers,routes,services,models,config}
+      mkdir -p frontend/{components,pages/dashboard,styles,utils}
+      touch backend/server.js
+      touch frontend/pages/index.js
+      touch frontend/pages/emergency.js
+      touch .env README.md package.json LICENSE
+      echo "node_modules/" > .gitignore
