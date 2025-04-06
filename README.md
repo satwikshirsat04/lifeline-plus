@@ -45,6 +45,9 @@ This project is built with the following technologies:
   - Vercel for frontend deployment
   - CI/CD with GitHub Actions
 
+## Website Screenshots
+
+
 ---
 
 ## 💻 Installation
