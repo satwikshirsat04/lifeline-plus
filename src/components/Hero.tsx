@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
@@ -10,22 +9,56 @@ const Hero = () => {
 
   const handleSOSClick = () => {
     setIsSOSActive(true);
-    
-    // Show immediate toast notification
+
+    // 1. UI Toast (Immediate)
     toast({
       title: "Emergency Alert Sent!",
       description: "Notifying nearby hospitals and medical professionals.",
       variant: "destructive",
     });
-    
-    // Simulate receiving a response after a delay
+
+    // 2. Get current location
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+
+        try {
+          const response = await fetch("http://localhost:5000/send-sos", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ latitude, longitude }),
+          });
+
+          const data = await response.json();
+          if (data.success) {
+            console.log("✅ SOS sent via Twilio");
+          } else {
+            console.error("❌ Backend error:", data);
+          }
+        } catch (err) {
+          console.error("❌ Fetch error:", err);
+        }
+      },
+      (error) => {
+        console.error("❌ Geolocation error:", error);
+        toast({
+          title: "Location Error",
+          description: "Could not access your location. Please enable GPS.",
+          variant: "destructive",
+        });
+      }
+    );
+
+    // 3. UI Response Simulation
     setTimeout(() => {
       toast({
         title: "Response Received",
         description: "Memorial Hospital has accepted your alert. ETA: 8 minutes.",
       });
-      
-      // Reset SOS button state after some time
+
+      // 4. Reset SOS Button
       setTimeout(() => {
         setIsSOSActive(false);
       }, 5000);
@@ -38,23 +71,23 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="lg:w-1/2 space-y-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-              Smart Healthcare <br /> 
+              Smart Healthcare <br />
               <span className="text-medical">Made Simple</span>
             </h1>
             <p className="text-lg text-gray-600 max-w-lg">
               Revolutionizing emergency care with instant alerts, real-time tracking, and comprehensive patient management.
             </p>
-            
+
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
               <div className="w-full sm:w-auto">
-                <button 
+                <button
                   onClick={handleSOSClick}
                   disabled={isSOSActive}
                   className={`
                     w-full sm:w-48 h-48 sm:h-48 rounded-full flex items-center justify-center
                     text-2xl font-bold text-white uppercase tracking-wider
-                    ${isSOSActive 
-                      ? 'bg-emergency-dark cursor-not-allowed' 
+                    ${isSOSActive
+                      ? 'bg-emergency-dark cursor-not-allowed'
                       : 'bg-emergency hover:bg-emergency-dark sos-button-shadow animate-pulse-sos cursor-pointer'}
                     transition-all duration-300 ease-in-out
                   `}
@@ -72,7 +105,7 @@ const Hero = () => {
                   )}
                 </button>
               </div>
-              
+
               <div className="space-y-4 w-full sm:w-auto">
                 <div className="flex items-center space-x-2">
                   <CircleCheck className="h-5 w-5 text-medical" />
@@ -93,13 +126,13 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-xl bg-white">
               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-medical to-medical-light"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-                alt="Healthcare professionals responding to emergency" 
+              <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Healthcare professionals responding to emergency"
                 className="w-full h-96 object-cover object-center"
               />
               <div className="p-6">
