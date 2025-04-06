@@ -1,73 +1,63 @@
-# Welcome to your Lovable project
+# 🏥 Lifeline Plus - Comprehensive Healthcare Management
 
-## Project info
+**Lifeline Plus** is an innovative, AI-powered platform designed to streamline healthcare management through real-time monitoring, predictive disease alerts, secure patient records, and much more. The platform integrates cutting-edge technologies to enhance patient care and improve the efficiency of healthcare providers.
 
-**URL**: https://lovable.dev/projects/d78a6116-87b9-4a3b-bbd0-db49bc162a40
+[![Lifeline Plus Logo](https://your-logo-url.com)](https://github.com/satwikshirsat04/lifeline-plus)
 
-## How can I edit this code?
+## Table of Contents
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 📋 About
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d78a6116-87b9-4a3b-bbd0-db49bc162a40) and start prompting.
+Lifeline Plus combines advanced **AI-powered analysis** with **medical expertise** to provide comprehensive solutions in healthcare management. With features like **Predictive Disease Alerts**, **Real-Time Monitoring**, and **Patient Records Management**, it is designed to enhance patient care, provide proactive alerts, and ensure data privacy and security.
 
-Changes made via Lovable will be committed automatically to this repo.
+### Features Include:
+- **Predictive Disease Alerts**: AI-powered analysis of patient data to predict health issues before they become critical.
+- **Patient Records Management**: A centralized, secure storage for patient history, ensuring coordinated care across providers.
+- **Real-Time Monitoring**: Continuous tracking of patient vitals, with instant alerts for critical changes in condition.
+- **Multi-Level Security**: Role-based access control, ensuring robust data protection.
+- **Medicine & Blood Bank Tracking**: Real-time monitoring and management of critical medical supplies.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## ⚙️ Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+This project is built with the following technologies:
 
-Follow these steps:
+- **Frontend**: 
+  - React.js
+  - TailwindCSS
+  - Vite
+- **Backend**:
+  - Node.js (with Express)
+  - MongoDB for data storage
+  - AI-powered analytics (custom models)
+- **Deployment**:
+  - Render.com for the backend
+  - Vercel for frontend deployment
+  - CI/CD with GitHub Actions
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 💻 Installation
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Prerequisites
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Before running this project locally, ensure you have the following installed:
 
-**Edit a file directly in GitHub**
+- [Node.js](https://nodejs.org/en/) (v16 or higher)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Clone the repository
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/d78a6116-87b9-4a3b-bbd0-db49bc162a40) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```bash
+git clone https://github.com/satwikshirsat04/lifeline-plus.git
+cd lifeline-plus
